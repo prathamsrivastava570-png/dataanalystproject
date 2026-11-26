@@ -32,6 +32,7 @@ tests/     test_pipeline.py
 docs/      data dictionary, quality report, ER diagram
 reports/   charts aur outputs
 app/       Streamlit dashboard (streamlit_app.py)
+notebooks/   analysis notebook
 ```
 
 ## How to Run
