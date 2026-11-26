@@ -4,3 +4,4 @@ oracledb
 streamlit
 nbformat
 jupyter
+streamlit

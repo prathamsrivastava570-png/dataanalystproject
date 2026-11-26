@@ -31,6 +31,7 @@ powerbi/   FraudDetection.pbix
 tests/     test_pipeline.py
 docs/      data dictionary, quality report, ER diagram
 reports/   charts aur outputs
+app/       Streamlit dashboard (streamlit_app.py)
 ```
 
 ## How to Run
@@ -46,9 +47,10 @@ python python/07_setup_oracle.py      # Oracle SYSTEM password maangega
 python python/08_load_oracle.py
 python python/09_run_sql.py sql/02_rules_views.sql
 python tests/test_pipeline.py
+python -m streamlit run app/streamlit_app.py
 ```
 Oracle step ke liye Oracle XE chalu hona chahiye (`localhost:1521/XEPDB1`).
-
+Dashboard chalane se pehle pipeline scripts (01 se 06) chalao, kyunki `data/` GitHub par nahi hai aur `data/flagged.csv` unhi se banti hai.
 ## Verification
 Oracle SQL results Python se verified hain (0 mismatches). 20 tests passed.
 
@@ -63,7 +65,8 @@ Oracle SQL results Python se verified hain (0 mismatches). 20 tests passed.
 ![Overview](SCREENOUTPUT/overview.png)
 ![Rules](SCREENOUTPUT/Rules.png)
 ![Output](SCREENOUTPUT/Output .png)
-
+![Streamlit](SCREENOUTPUT/dashboard1.png)
+![Streamlit](SCREENOUTPUT/dashboard.png)
 
 ## Dataset
 
