@@ -1,0 +1,9 @@
+DATA QUALITY REPORT
+Rows before cleaning:      662187
+Rows after cleaning:       662187
+Rows removed:              0
+Fraud rows:                3771
+Fraud rate (%):            0.57
+Cards:                     500
+Date range:                2019-01-01 00:00:18 to 2020-06-21 12:13:37
+Amount min / max:          1.0 / 28948.9

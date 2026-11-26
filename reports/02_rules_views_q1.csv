@@ -1,0 +1,5 @@
+RULE_NAME,SQL_COUNT,PY_COUNT,MISMATCHES
+amount > 600,5494,5494,0
+velocity,4381,4381,0
+night & amt > 300,4962,4962,0
+2 or more rules,2468,2468,0

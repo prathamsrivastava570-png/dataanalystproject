@@ -1,0 +1,6 @@
+pandas
+matplotlib
+oracledb
+streamlit
+nbformat
+jupyter

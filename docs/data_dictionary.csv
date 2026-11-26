@@ -1,0 +1,41 @@
+table,column,type,description,example_or_rule
+flagged.csv (source of the Oracle load),trans_time,datetime,Date and time of the transaction (renamed from trans_date_trans_time),2019-01-03 18:38:26; parsed to datetime
+flagged.csv (source of the Oracle load),cc_num,integer,Credit card number (simulated); identifies a card,Unique per card; one card = one customer
+flagged.csv (source of the Oracle load),merchant,text,Merchant name,Starts with 'fraud_' in the source data
+flagged.csv (source of the Oracle load),category,text,Merchant category,"shopping_net, grocery_pos, home (14 values)"
+flagged.csv (source of the Oracle load),amt,decimal,Transaction amount,Must be > 0; range 1.0 to 28948.9
+flagged.csv (source of the Oracle load),first_name,text,Cardholder first name (renamed from first),Trimmed text
+flagged.csv (source of the Oracle load),last_name,text,Cardholder last name (renamed from last),Trimmed text
+flagged.csv (source of the Oracle load),gender,char,Cardholder gender,M or F
+flagged.csv (source of the Oracle load),street,text,Cardholder street address,Trimmed text
+flagged.csv (source of the Oracle load),city,text,Cardholder city,Trimmed text
+flagged.csv (source of the Oracle load),state,char(2),Cardholder US state,"Upper case, e.g. SC"
+flagged.csv (source of the Oracle load),zip,integer,Cardholder ZIP code,"5 digits, max 99999"
+flagged.csv (source of the Oracle load),latitude,decimal,Cardholder latitude (renamed from lat),-90 to 90
+flagged.csv (source of the Oracle load),longitude,decimal,Cardholder longitude (renamed from long; LONG is reserved in Oracle),-180 to 180
+flagged.csv (source of the Oracle load),city_pop,integer,Population of the cardholder's city,46944
+flagged.csv (source of the Oracle load),job,text,Cardholder job title,Secondary school teacher
+flagged.csv (source of the Oracle load),dob,date,Cardholder date of birth,1942-04-02
+flagged.csv (source of the Oracle load),trans_num,text,Unique transaction ID (primary key),32-character hash; must be unique
+flagged.csv (source of the Oracle load),unix_time,integer,Transaction time as a Unix timestamp,Seconds since 1970-01-01
+flagged.csv (source of the Oracle load),merch_latitude,decimal,Merchant latitude (renamed from merch_lat),-90 to 90
+flagged.csv (source of the Oracle load),merch_longitude,decimal,Merchant longitude (renamed from merch_long),-180 to 180
+flagged.csv (source of the Oracle load),is_fraud,integer,"Label: 1 = fraud, 0 = legitimate",Only 0 or 1; used to measure precision and recall
+flagged.csv (source of the Oracle load),trans_date,date,Derived: calendar date of the transaction,2019-01-03
+flagged.csv (source of the Oracle load),trans_hour,integer,Derived: hour of day of the transaction,0 to 23
+flagged.csv (source of the Oracle load),trans_dow,text,Derived: day of week name,Thursday
+flagged.csv (source of the Oracle load),age,integer,Derived: cardholder age in years at transaction time,10 to 110
+flagged.csv (source of the Oracle load),rule_amount,integer,Rule 1 flag: amount > 600,0 or 1
+flagged.csv (source of the Oracle load),rule_velocity,integer,Rule 2 flag: 3 or more transactions on the same card within 30 minutes,0 or 1
+flagged.csv (source of the Oracle load),rule_night,integer,"Rule 3 flag: hour in 22,23,0,1,2,3 and amount > 300",0 or 1
+flagged.csv (source of the Oracle load),flag_count,integer,Number of rules that fired,0 to 3; transaction is flagged when >= 2
+dim_card,card_key,number,Surrogate key for a card/customer,Primary key
+dim_card,cc_num,number(19),Card number,"Unique, not null"
+dim_merchant,merchant_key,number,Surrogate key for a merchant,Primary key
+dim_category,category_key,number,Surrogate key for a category,Primary key
+dim_date,date_key,number(8),Date as YYYYMMDD,"Primary key, e.g. 20190103"
+fact_transaction,trans_num,varchar2(40),One row per transaction,Primary key
+fact_transaction,card_key / merchant_key / category_key / date_key,number,Foreign keys to the four dimensions,Not null; must match a dimension row
+fact_transaction,amt,"number(10,2)",Transaction amount,CHECK amt > 0
+fact_transaction,is_fraud,number(1),Fraud label,"CHECK in (0,1)"
+fact_transaction,py_rule_* / py_flag_count,number(1),"Rule flags computed in Python, kept to reconcile with the SQL rules",0/1; flag_count 0 to 3

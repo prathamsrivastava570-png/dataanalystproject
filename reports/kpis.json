@@ -1,0 +1,15 @@
+{
+  "total_transactions": 662187,
+  "fraud_transactions": 3771,
+  "fraud_rate_pct": 0.57,
+  "total_amount": 45914063.79,
+  "fraud_amount": 2038201.89,
+  "avg_fraud_amount": 540.49,
+  "avg_normal_amount": 66.64,
+  "flagged_transactions": 2468,
+  "caught_fraud": 1582,
+  "precision_pct": 64.1,
+  "recall_pct": 42.0,
+  "f1": 50.7,
+  "night_share_of_fraud_pct": 85.1
+}

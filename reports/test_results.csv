@@ -1,0 +1,21 @@
+test,status,detail
+No duplicate transaction keys (trans_num),PASS,0 duplicates
+No missing required fields,PASS,0 missing cells
+Amount is positive,PASS,min=1.0
+is_fraud only 0 or 1,PASS,
+Hour between 0 and 23,PASS,
+Latitude/longitude in valid range,PASS,
+Rule flags are 0/1,PASS,
+flag_count equals sum of the three rules,PASS,
+Customer age between 10 and 110,PASS,
+Fact rows equal source rows,PASS,662187 vs 662187
+Every fact row has a matching card,PASS,
+Every fact row has a matching merchant,PASS,
+Every fact row has a matching category,PASS,
+Every fact row has a matching date,PASS,
+No duplicate dimension keys,PASS,
+Row count: Python = Oracle,PASS,py=662187 sql=662187
+Fraud count: Python = Oracle,PASS,py=3771 sql=3771
+Total amount: Python = Oracle,PASS,py=45914063.79 sql=45914063.79
+Oracle: no orphan fact rows,PASS,0 orphans
+SQL rules match Python rules,PASS,0 mismatching flags

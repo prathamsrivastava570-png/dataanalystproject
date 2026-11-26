@@ -1,0 +1,12 @@
+issue,rule_applied,rows_affected
+Redundant index column 'Unnamed: 0',Dropped the column (no rows removed),662187
+"Reserved/ambiguous column names (LONG, FIRST, LAST, ...)","Renamed 7 columns, e.g. long -> longitude",662187
+Stray whitespace / inconsistent case in text columns,Trimmed text; upper-cased state and gender,0
+Unparseable transaction or birth dates,Removed rows with invalid dates (logged),0
+Missing values in required fields,Removed rows with a missing required field (logged),0
+"is_fraud not in {0,1}",Removed rows with an invalid label (logged),0
+Duplicate transactions (same trans_num),"Kept first occurrence, removed the rest",0
+Zero or negative transaction amounts,Removed rows with amt <= 0 (logged),0
+Cards whose customer attributes change between rows,Check only; no fix needed,0
+Transactions in the midnight hour (00:00-00:59),Retained; hour 0 is a valid hour and is used by the night rule,21756
+"Extreme amounts above 1,000 (median is about 47)",Retained; amount rule thresholds handle them,2001
