@@ -33,6 +33,7 @@ docs/      data dictionary, quality report, ER diagram
 reports/   charts aur outputs
 app/       Streamlit dashboard (streamlit_app.py)
 notebooks/   analysis notebook
+excel/   Excel workbook (Power Query, pivots, dashboard)
 ```
 
 ## How to Run
@@ -65,10 +66,12 @@ Oracle SQL results Python se verified hain (0 mismatches). 20 tests passed.
 ## Dashboard
 ![Overview](SCREENOUTPUT/overview.png)
 ![Rules](SCREENOUTPUT/Rules.png)
-![Output](SCREENOUTPUT/Output .png)
+![Output](SCREENOUTPUT/Output.png)
 ![Streamlit](SCREENOUTPUT/dashboard1.png)
 ![Streamlit](SCREENOUTPUT/dashboard.png)
-
+![Excel](excel/excel1.png)
+![Excel](excel/excel2.png)
+![Excel](excel/excel3.png)
 ## Dataset
 Dataset repo mein shamil nahi hai (file size bahut badi hai).
 
