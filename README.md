@@ -69,6 +69,11 @@ Oracle SQL results Python se verified hain (0 mismatches). 20 tests passed.
 ![Streamlit](SCREENOUTPUT/dashboard.png)
 
 ## Dataset
+Dataset repo mein shamil nahi hai (file size bahut badi hai).
+
+Source: "Credit Card Transactions Fraud Detection Dataset" (Kaggle), ek public simulated dataset. File: `fraudTrain.csv`.
+
+Download karke `data/fraudTrain.csv` naam se `data/` folder mein rakho, phir pipeline scripts (01 se 06) chalao.
 
 ## Author
 PrathamSrivastava 
